@@ -45,7 +45,7 @@ def sendMail(dicts):
         print(msg.as_string())
         server = smtplib.SMTP_SSL('smtp.qq.com',465)
         server.login(_user, _pwd)
-        server.sendmail(_user, _to, msg.as_string())
+        server.sendmail(_user, _to.split(), msg.as_string())
         server.quit()
     except Exception as e:
         print(e)
