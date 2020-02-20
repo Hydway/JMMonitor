@@ -1,8 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# Author    : 奶权
-# Action    : 微博监控
-# Desc      : 微博监控主模块
+# coding=utf-8
 
 import requests,json,sys
 from lxml import etree
@@ -105,7 +101,7 @@ class weiboMonitor():
                         returnDict['source'] = i['mblog']['source']
                         returnDict['nickName'] = i['mblog']['user']['screen_name']
                         #if has photos
-                        if i['mblog'].has_key('pics'):
+                        if 'pics' in i['mblog']:
                             returnDict['picUrls'] = []
                             for j in i['mblog']['pics']:
                                 returnDict['picUrls'].append(j['url'])
@@ -121,6 +117,6 @@ class weiboMonitor():
     """
     def echoMsg(self, level, msg):
         if level == 'Info':
-            print '[Info] %s'%msg
+            print('[Info] %s'%msg)
         elif level == 'Error':
-            print '[Error] %s'%msg
+            print('[Error] %s'%msg)
